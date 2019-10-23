@@ -32,17 +32,23 @@
 <body>
     <div id="app">
         <div class="wrapper">
-            {{-- Inicio sidebar --}}
-            @include('layouts.partial.sidebar')
-            {{-- Fin sidebar --}}
+            @if (Request::is('admin*'))
+                {{-- Inicio sidebar --}}
+                @include('layouts.partial.sidebar')
+                {{-- Fin sidebar --}}
+            @endif
             <div class="main-panel">
-                {{-- Inicio topbar --}}
-                @include('layouts.partial.topbar')
-                {{-- Fin topbar --}}
+                @if (Request::is('admin*'))
+                    {{-- Inicio topbar --}}
+                    @include('layouts.partial.topbar')
+                    {{-- Fin topbar --}}
+                @endif
                     @yield('content')
-                {{-- Inicio footer --}}
-                @include('layouts.partial.footer')
-                {{-- Fin footer --}}
+                @if (Request::is('admin*'))
+                    {{-- Inicio footer --}}
+                    @include('layouts.partial.footer')
+                    {{-- Fin footer --}}
+                @endif
             </div>
         </div>
     </div>
