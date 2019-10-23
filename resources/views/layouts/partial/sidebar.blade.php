@@ -11,16 +11,16 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
-                <a href="dashboard.html">
+            <li class="{{ Request::is('admin/dashboard*') ? 'active': '' }}">
+                <a href="{{ route('admin.dashboard') }}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li>
-                <a href="./user.html">
-                    <i class="material-icons">person</i>
-                    <p>User Profile</p>
+            <li class="{{ Request::is('admin/slider*') ? 'active': '' }}">
+                <a href="{{ route('slider.index') }}">
+                    <i class="material-icons">slideshow</i>
+                    <p>Sliders</p>
                 </a>
             </li>
             <li>
