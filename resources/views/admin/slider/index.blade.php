@@ -11,6 +11,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
+                    <a href="{{ route('slider.create') }}" class="btn btn-info">Add new</a>
+                    @include('layouts.partial.msg')
                     <div class="card">
                         <div class="card-header" data-background-color="purple">
                             <h4 class="title">All Sliders</h4>
