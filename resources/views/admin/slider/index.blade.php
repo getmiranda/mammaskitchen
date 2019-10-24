@@ -27,6 +27,7 @@
                                     <th>Image</th>
                                     <th>Created At</th>
                                     <th>Updated At</th>
+                                    <th>Action</th>
                                 </thead>
                                 <tbody>
                                     @foreach ($sliders as $key=>$slider)
@@ -37,6 +38,11 @@
                                             <td>{{ $slider->image }}</td>
                                             <td>{{ $slider->created_at }}</td>
                                             <td>{{ $slider->updated_at }}</td>
+                                            <td>
+                                                <a href="{{ route('slider.edit',$slider->id) }}" class="btn btn-info btn-sm">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
