@@ -61,7 +61,7 @@ class SliderController extends Controller
         $slider->sub_title = $request->sub_title;
         $slider->image = $imagename;
         $slider->save();
-        return redirect()->route('slider.index')->with('successMsg','Slider Successfully Saved');
+        return redirect()->route('slider.index')->with('successMsg','Slider successfully saved');
     }
 
     /**
@@ -120,7 +120,7 @@ class SliderController extends Controller
         $slider->sub_title = $request->sub_title;
         $slider->image = $imagename;
         $slider->save();
-        return redirect()->route('slider.index')->with('successMsg','Slider Successfully Updated');
+        return redirect()->route('slider.index')->with('successMsg','Slider successfully updated');
     }
 
     /**
@@ -131,6 +131,11 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        if (file_exists('uploads/slider/'.$slider->image)){
+            unlink('uploads/slider/'.$slider->image);
+        }
+        $slider->delete();
+        return redirect()->back()->with('successMsg','Slider successfully deleted');
     }
 }
