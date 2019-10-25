@@ -16,9 +16,16 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/flexslider.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/pricing.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
-
-
-        <script src="js/jquery-1.11.2.min.js"></script>
+        <style>
+            @foreach($sliders as $key=>$slider)
+                .owl-carousel .owl-wrapper, .owl-carousel .owl-item:nth-child({{ $key + 1 }}) .item
+                {
+                    background: url({{ asset('uploads/slider/'.$slider->image) }});
+                    background-size: cover;
+                }
+            @endforeach
+        </style>
+        <script src="{{ asset('frontend/js/jquery-1.11.2.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.flexslider.min.js') }}"></script>
         <script type="text/javascript">
             $(window).load(function() {
@@ -87,36 +94,19 @@
             </div><!-- /.row -->
         </nav>
 
-
         <!--== 5. Header ==-->
         <section id="header-slider" class="owl-carousel">
+            @foreach($sliders as $key=>$slider)
             <div class="item">
                 <div class="container">
                     <div class="header-content">
-                        <h1 class="header-title">BEST FOOD</h1>
-                        <p class="header-sub-title">create your own slogan</p>
+                        <h1 class="header-title">{{ $slider->title }}</h1>
+                        <p class="header-sub-title">{{ $slider->sub_title }}</p>
                     </div> <!-- /.header-content -->
                 </div>
             </div>
-            <div class="item">
-                <div class="container">
-                    <div class="header-content">
-                        <h1 class="header-title">BEST SNACKS</h1>
-                        <p class="header-sub-title">create your own slogan</p>
-                    </div> <!-- /.header-content -->
-                </div>
-            </div>
-            <div class="item">
-                <div class="container">
-                    <div class="header-content text-right pull-right">
-                        <h1 class="header-title">BEST DRINKS</h1>
-                        <p class="header-sub-title">create your own slogan</p>
-                    </div> <!-- /.header-content -->
-                </div>
-            </div>
+        @endforeach
         </section>
-
-
 
         <!--== 6. About us ==-->
         <section id="about" class="about">
@@ -218,7 +208,7 @@
                                 <li class="item breakfast special">
 
                                     <a href="#">
-                                        <img src="images/food4.jpg" class="img-responsive" alt="Food" >
+                                        <img src="{{ asset('frontend/images/food4.jpg') }}" class="img-responsive" alt="Food" >
                                         <div class="menu-desc">
                                             <span>
                                                 <h3>Prawn Dish</h3>
@@ -232,7 +222,7 @@
                                 <li class="item breakfast">
 
                                     <a href="#">
-                                        <img src="images/food5.jpg" class="img-responsive" alt="Food" >
+                                        <img src="{{ asset('frontend/images/food5.jpg') }}" class="img-responsive" alt="Food" >
                                         <div class="menu-desc">
                                             <span>
                                                 <h3>Vegetable Dish</h3>
@@ -246,7 +236,7 @@
                                 <li class="item dinner special">
 
                                     <a href="#">
-                                        <img src="images/food6.jpg" class="img-responsive" alt="Food" >
+                                        <img src="{{ asset('frontend/images/food6.jpg') }}" class="img-responsive" alt="Food" >
                                         <div class="menu-desc">
                                             <span>
                                                 <h3>Chicken Dish</h3>
@@ -260,7 +250,7 @@
                                 <li class="item desert">
 
                                     <a href="#">
-                                        <img src="images/food7.jpg" class="img-responsive" alt="Food" >
+                                        <img src="{{ asset('frontend/images/food7.jpg') }}" class="img-responsive" alt="Food" >
                                         <div class="menu-desc">
                                             <span>
                                                 <h3>Vegetable Noodles</h3>
@@ -274,7 +264,7 @@
                                 <li class="item dinner">
 
                                     <a href="#">
-                                        <img src="images/food8.jpg" class="img-responsive" alt="Food" >
+                                        <img src="{{ asset('frontend/images/food8.jpg') }}" class="img-responsive" alt="Food" >
                                         <div class="menu-desc">
                                             <span>
                                                 <h3>Special Salad</h3>
@@ -288,7 +278,7 @@
                                 <li class="item desert special">
 
                                     <a href="#">
-                                        <img src="images/food9.jpg" class="img-responsive" alt="Food" >
+                                        <img src="{{ asset('frontend/images/food9.jpg') }}" class="img-responsive" alt="Food" >
                                         <div class="menu-desc">
                                             <span>
                                                 <h3>Ice-cream</h3>

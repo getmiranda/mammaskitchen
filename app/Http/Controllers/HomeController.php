@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
+//use App\Category;
+//use App\Item;
+use App\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $sliders = Slider::all();
+        //$categories = Category::all();
+        //$items = Item::all();
+        return view('welcome',compact('sliders'));
     }
 }
