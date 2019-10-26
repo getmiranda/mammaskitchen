@@ -23,6 +23,12 @@
                     <p>Sliders</p>
                 </a>
             </li>
+            <li class="{{ Request::is('admin/category*') ? 'active': '' }}">
+                <a href="{{ route('category.index') }}">
+                    <i class="material-icons">content_paste</i>
+                    <p>Category</p>
+                </a>
+            </li>
             <li>
                 <a href="./table.html">
                     <i class="material-icons">content_paste</i>
