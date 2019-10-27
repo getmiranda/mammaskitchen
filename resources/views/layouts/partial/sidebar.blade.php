@@ -29,6 +29,12 @@
                     <p>Category</p>
                 </a>
             </li>
+            <li class="{{ Request::is('admin/item*') ? 'active': '' }}">
+                <a href="{{ route('item.index') }}">
+                    <i class="material-icons">library_books</i>
+                    <p>Items</p>
+                </a>
+            </li>
             <li>
                 <a href="./table.html">
                     <i class="material-icons">content_paste</i>
