@@ -35,6 +35,12 @@
                     <p>Items</p>
                 </a>
             </li>
+            <li class="{{ Request::is('admin/reservation*') ? 'active': '' }}">
+                <a href="{{ route('reservation.index') }}">
+                    <i class="material-icons">chrome_reader_mode</i>
+                    <p>Reservations</p>
+                </a>
+            </li>
             <li>
                 <a href="./table.html">
                     <i class="material-icons">content_paste</i>
