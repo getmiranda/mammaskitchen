@@ -44,31 +44,34 @@
                                                 @else
                                                     <span class="label label-danger">not Confirmed yet</span>
                                                 @endif
-
                                             </th>
                                             <td>{{ $reservation->created_at }}</td>
                                             <td>
                                                 @if($reservation->status == false)
-                                                    <form id="status-form-{{ $reservation->id }}" action="" style="display: none;" method="POST">
+                                                    <form id="status-form-{{ $reservation->id }}" action="{{ route('reservation.status',$reservation->id) }}" style="display: none;" method="POST">
                                                         @csrf
                                                     </form>
                                                     <button type="button" class="btn btn-info btn-sm" onclick="if(confirm('Are you verify this request by phone?')){
-                                                                event.preventDefault();
-                                                                document.getElementById('status-form-{{ $reservation->id }}').submit();
-                                                            }else {
-                                                                event.preventDefault();
-                                                            }"><i class="material-icons">done</i></button>
+                                                            event.preventDefault();
+                                                            document.getElementById('status-form-{{ $reservation->id }}').submit();
+                                                        }else {
+                                                            event.preventDefault();
+                                                        }">
+                                                        <i class="material-icons">done</i>
+                                                    </button>
                                                 @endif
-                                                <form id="delete-form-{{ $reservation->id }}" action="" style="display: none;" method="POST">
+                                                <form id="delete-form-{{ $reservation->id }}" action="{{ route('reservation.destory',$reservation->id) }}" style="display: none;" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
                                                 <button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure? You want to delete this?')){
-                                                    event.preventDefault();
-                                                    document.getElementById('delete-form-{{ $reservation->id }}').submit();
-                                                }else {
-                                                    event.preventDefault();
-                                                }"><i class="material-icons">delete</i></button>
+                                                        event.preventDefault();
+                                                        document.getElementById('delete-form-{{ $reservation->id }}').submit();
+                                                    }else {
+                                                        event.preventDefault();
+                                                    }">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
