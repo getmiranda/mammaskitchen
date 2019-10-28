@@ -32,10 +32,8 @@
                                             <td>{{ $contact->subject }}</td>
                                             <td>{{ $contact->created_at }}</td>
                                             <td>
-                                                    {{-- {{ route('contact.show',$contact->id) }} --}}
-                                                <a href="" class="btn btn-info btn-sm"><i class="material-icons">details</i></a>
-                                                {{-- {{ route('contact.destroy',$contact->id) }} --}}
-                                                <form id="delete-form-{{ $contact->id }}" action="" style="display: none;" method="POST">
+                                                <a href="{{ route('contact.show',$contact->id) }}" class="btn btn-info btn-sm"><i class="material-icons">details</i></a>
+                                                <form id="delete-form-{{ $contact->id }}" action="{{ route('contact.destroy',$contact->id) }}" style="display: none;" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>
