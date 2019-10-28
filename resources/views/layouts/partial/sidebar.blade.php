@@ -1,12 +1,12 @@
-<div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="purple" data-image="{{ asset('backend/img/sidebar-1.jpg') }}">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text">
-            Creative Tim
+        <a href="{{ route('admin.dashboard') }}" class="simple-text">
+            Mamma's Kitchen
         </a>
     </div>
     <div class="sidebar-wrapper">
