@@ -22,8 +22,7 @@ class ReservationController extends Controller
         $reservation->status = true;
         $reservation->save();
         Toastr::success('Reservation successfully confirmed.','Success',["positionClass" => "toast-top-right"]);
-        // Notification::route('mail',$reservation->email )
-        //     ->notify(new ReservationConfirmed());
+        Notification::route('mail',$reservation->email )->notify(new ReservationConfirmed());
         return redirect()->back();
     }
 
